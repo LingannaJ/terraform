@@ -1,26 +1,26 @@
-#1. command line
-#2. tfvars
-#3. ENV variable
-#4. variable default value
-
-
 variable "image_id" {
   type        = string #optional
   default     = "ami-090252cbe067a9e58" #optional
   description = "RHEL-9 AMI ID" #optional
 }
 
+
+variable "instance_names" {
+    type = list 
+    default = ["db", "backend", "frontend"]
+
+}
 variable "instance_type" {
     default = "t3.micro"
     type = string
 }
 
-variable "tags" {
+variable "common_tags" {
     default = {
         Project = "Expense"
         Environment = "Dev"
-        Module = "DB"
-        Name = "DB"
+        Terraform = "True"
+    
     }
 }
 
