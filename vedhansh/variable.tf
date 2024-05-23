@@ -19,9 +19,13 @@ variable "instance_name" {
 
 }
 
-variable "instance_names" {
-    default = "db"
-
+variable "comman_tags" {
+    default = {
+        Project = "expense"
+        terraform = "true"
+        createdBy = "Vedhansh"
+        Name = "db"
+    }
   
 }
 
@@ -49,3 +53,14 @@ variable "ssh_port" {
     default = "22"
   
 }
+
+variable "domain_name" {
+    default = "shivdev.online"
+    type = string
+  
+ }
+ variable "zone_id" {
+    default = "Z0752932HHVY7XFGG8HE"
+     type = string
+  
+ }

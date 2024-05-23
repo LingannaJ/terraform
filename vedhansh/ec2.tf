@@ -33,15 +33,17 @@ resource "aws_security_group" "allow_practice" {
 }
 
 
-resource "aws_instance" "Expense" {
+resource "aws_instance" "expense" {
   count = length(var.instance_name)
   ami           = var.amazon_image_id
   instance_type = var.instance_name [count.index] == "db" ? "t3.small" : "t2.micro" 
 
-tags = {
+tags = merge(
+  var.comman_tags, 
+{
   Name = var.instance_name[count.index]
+  Module = var.instance_name[count.index]
+}
+)
 
 }
-
-}
-
