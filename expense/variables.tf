@@ -39,7 +39,7 @@ variable "protocol" {
     default = "tcp"
 }
 
-variable "allowed_cidr" {
+variable "allowed_cidrs" {
     type = list(string)
     default = ["0.0.0.0/0"]
 }
